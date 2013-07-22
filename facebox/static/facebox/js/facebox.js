@@ -103,12 +103,13 @@
       showOverlay()
 
       $('#facebox .content').attr('class', 'content'); // remove all past classes
-      $('#facebox .content').children().hide().end();
+      $('#facebox .content').empty().
+        append('<div class="loading"><img src="'+$.facebox.settings.loadingImage+'"/></div>')
 
-      $('#facebox').css({
-        top:	getPageScroll()[1] + (getPageHeight() / 10),
+      $('#facebox').show().css({
+        top:  getPageScroll()[1] + (getPageHeight() / 10),
         left:	$(window).width() / 2 - ($('#facebox .popup').outerWidth() / 2)
-      });
+      })
 
       $(document).bind('keydown.facebox', function(e) {
         if (e.keyCode == 27) $.facebox.close()
@@ -122,7 +123,7 @@
       if (klass) $('#facebox .content').addClass(klass)
       $('#facebox .content').empty().append(data)
       $('#facebox .popup').children().fadeIn('normal')
-      $('#facebox').show(25).css('left', $(window).width() / 2 - ($('#facebox .popup').outerWidth() / 2))
+      $('#facebox').css('left', $(window).width() / 2 - ($('#facebox .popup').outerWidth() / 2))
       $(document).trigger('reveal.facebox').trigger('afterReveal.facebox')
     },
 
@@ -141,7 +142,7 @@
 
     init(settings)
 
-    function clickHandler(event) {
+    function clickHandler() {
       $.facebox.loading(true)
 
       // support for rel="facebox.inline_popup" syntax, to add a class
@@ -149,7 +150,6 @@
       var klass = this.rel.match(/facebox\[?\.(\w+)\]?/)
       if (klass) klass = klass[1]
 
-      event.preventDefault();
       fillFaceboxFromHref(this.href, klass)
       return false
     }
