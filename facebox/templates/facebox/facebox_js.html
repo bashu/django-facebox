@@ -1,16 +1,23 @@
 {% load staticfiles %}
 <script src="{% static "facebox/js/facebox.js" %}" type="text/javascript"></script>
 <script type="text/javascript">
-  jQuery(document).ready(function($) {
-    $('a[rel*=facebox]').facebox({
-      loadingImage: '{% static "facebox/img/loading.gif" %}',
-      closeImage: '{% static "facebox/img/closelabel.png" %}'
+    $(document).bind("loading.facebox", function() {
+        $(document).unbind("keydown.facebox");
+        $("#facebox_overlay").unbind("click");
     });
-
-    $('#facebox').on('click', 'a[rel*=facebox]', function (e) {
-      e.preventDefault();
-      var url = $(this).attr('href');
-      $('#facebox').find('.content').load(url);
+    $(document).ready(function() {
+        $("a[rel*=facebox]").on("mousedown", function() { 
+            // everytime you click unbind the past event handled...
+            $(this).unbind("click");
+            $(this).facebox({
+                loadingImage: "{% static "facebox/img/loading.gif" %}",
+                closeImage: "{% static "facebox/img/closelabel.png" %}",
+                ajax: $(this).attr("href")
+            });
+        });
+        $("#facebox").on("click", "a[rel*=facebox]", function (e) {
+            e.preventDefault();
+            $("#facebox").find(".content").load($(this).attr("href"));
+        });
     });
-  });
 </script>
