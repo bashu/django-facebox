@@ -3,7 +3,7 @@ Django-Facebox
 
 This is a [Django](https://www.djangoproject.com/) integration of [Facebox](http://defunkt.io/facebox/).
 
-![Version] (https://pypip.in/d/django-facebox/badge.png ) ![Downloads] (https://pypip.in/d/django-facebox/badge.png )
+[![Latest Release](https://pypip.in/py/django-facebox/badge.png)](http://badge.fury.io/py/django-facebox) [![Downloads](https://pypip.in/py/django-facebox/badge.png)](https://crate.io/packages/django-facebox?version=latest)
 
 ## Installation
 
