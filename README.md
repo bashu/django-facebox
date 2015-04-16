@@ -1,4 +1,4 @@
-Django-Facebox
+django-facebox
 ==============
 
 This is a [Django](https://www.djangoproject.com/) integration of [Facebox](http://defunkt.io/facebox/).
