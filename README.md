@@ -17,38 +17,38 @@ This is a [Django](https://www.djangoproject.com/) integration of [Facebox](http
 ## Setup
 
 Add `facebox` to  `INSTALLED_APPS`:
-
-    INSTALLED_APPS = [
-		...
-    	'facebox',
-	]
-
+```python
+INSTALLED_APPS = [
+	...
+	'facebox',
+]
+```
 Be sure you have the `django.core.context_processors.request` processor
-
-	TEMPLATE_CONTEXT_PROCESSORS = [
-		..
-    	"django.core.context_processors.request"
-	]
-
+```python
+TEMPLATE_CONTEXT_PROCESSORS = [
+	...
+	"django.core.context_processors.request"
+]
+```
 and just include `facebox` templates
-
-    {% include "facebox/facebox_css.html" %} {# Before the closing head tag #}
-	{% include "facebox/facebox_js.html" %} %} {# Before the closing body tag #}
-
+```html
+{% include "facebox/facebox_css.html" %} {# Before the closing head tag #}
+{% include "facebox/facebox_js.html" %} %} {# Before the closing body tag #}
+```
 When deploying on production server, don't forget to run :
-
-    $ python manage.py collectstatic
-
+```shell
+$ python manage.py collectstatic
+```
 ## Usage
 
 Extend base template for ajax requests
-
-    {% extends request.is_ajax|yesno:"facebox/base.html,base.html" %}
-
+```html
+{% extends request.is_ajax|yesno:"facebox/base.html,base.html" %}
+```
 Add `rel="facebox"` to a link, and set the href to a page you want to display
-
-    <a href="{% url 'remote.html' %}" rel="facebox">Click here</a>
-
+```html
+<a href="{% url 'remote.html' %}" rel="facebox">Click here</a>
+```
 Please see `example` application. This application is used to manually test the functionalities of this package. This also serves as a good example.
 
 You need only Django 1.4 or above to run that. It might run on older versions but that is not tested.
