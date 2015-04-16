@@ -55,4 +55,4 @@ You need only Django 1.4 or above to run that. It might run on older versions bu
 
 ## License
 
-`django-facebox` is released under the BSD license.
+`django-facebox` is authored by [Basil Shubin](http://resume.github.io/?bashu) and released under the BSD license.
