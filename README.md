@@ -10,9 +10,9 @@ Authored by [Basil Shubin](https://github.com/bashu)
 [![License](https://img.shields.io/github/license/bashu/django-facebox.svg)](https://pypi.python.org/pypi/django-facebox/)
 
 ## Installation
-
-    $ pip install django-facebox
-
+```shell
+pip install django-facebox
+```
 ### External dependencies
 
 * jQuery - This is not included in the package since it is expected that in most scenarios this would already be available.
@@ -34,7 +34,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 ]
 ```
 and just include `facebox` templates
-```html
+```html+django
 {% include "facebox/facebox_css.html" %} {# Before the closing head tag #}
 {% include "facebox/facebox_js.html" %} %} {# Before the closing body tag #}
 ```
@@ -45,11 +45,11 @@ $ python manage.py collectstatic
 ## Usage
 
 Extend base template for ajax requests
-```html
+```html+django
 {% extends request.is_ajax|yesno:"facebox/base.html,base.html" %}
 ```
 Add `rel="facebox"` to a link, and set the href to a page you want to display
-```html
+```html+django
 <a href="{% url 'remote.html' %}" rel="facebox">Click here</a>
 ```
 Please see `example` application. This application is used to manually test the functionalities of this package. This also serves as a good example.
