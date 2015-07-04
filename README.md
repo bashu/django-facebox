@@ -36,7 +36,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
 and just include `facebox` templates
 ```html+django
 {% include "facebox/facebox_css.html" %} {# Before the closing head tag #}
-{% include "facebox/facebox_js.html" %} %} {# Before the closing body tag #}
+{% include "facebox/facebox_js.html" %} {# Before the closing body tag #}
 ```
 When deploying on production server, don't forget to run :
 ```shell
