@@ -1,4 +1,4 @@
 include LICENSE
 include README.rst
-recursive-include facebox/static *
-recursive-include facebox/templates *
+recursive-include facebox/static *.css *.js *.png *.gif
+recursive-include facebox/templates *.html
