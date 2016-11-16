@@ -26,6 +26,18 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Application definition
+
+PROJECT_APPS = [
+    'facebox',
+]
+
+INSTALLED_APPS = [
+    'django.contrib.auth',
+    'django.contrib.staticfiles',
+    'django.contrib.contenttypes',
+] + PROJECT_APPS
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -47,18 +59,6 @@ TEMPLATES = [
         },
     },
 ]
-
-# Application definition
-
-PROJECT_APPS = [
-    'facebox',
-]
-
-INSTALLED_APPS = [
-    'django.contrib.auth',
-    'django.contrib.staticfiles',
-    'django.contrib.contenttypes',
-] + PROJECT_APPS
 
 ROOT_URLCONF = 'example.urls'
 
